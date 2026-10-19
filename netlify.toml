@@ -1,0 +1,4 @@
+[build]
+  # npm is always available in the build image; dependencies are still installed with pnpm from pnpm-lock.yaml
+  command = "npm run build"
+  publish = ".next"
