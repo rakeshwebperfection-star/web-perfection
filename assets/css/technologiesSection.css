@@ -1,0 +1,263 @@
+
+/* =========================
+   TECHNOLOGIES SECTION
+========================= */
+
+.technologies-section {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 4%;
+  background: #020509;
+  color: #ffffff;
+}
+
+.technologies-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Heading */
+
+.technologies-header {
+  max-width: 1040px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.technologies-heading {
+  margin: 0 0 14px;
+  color: #f7f8fc;
+  font-size: clamp(30px, 3vw, 48px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.technologies-heading span {
+  display: inline-block;
+  color: #6651ed;
+  background: linear-gradient(100deg, #4c91e8, #7041e8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: filter 0.3s ease;
+}
+
+.technologies-heading span:hover {
+  filter: drop-shadow(0 0 12px rgba(104, 76, 235, 0.45));
+}
+
+.technologies-intro {
+  margin: 0 auto;
+  color: #e0e3e9;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* Cards grid */
+
+.technologies-grid {
+    width: 100%;
+    max-width: 1380px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0 auto;
+}
+
+/* Individual card */
+
+.technology-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 250px;
+  padding: 28px 19px 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.025);
+  border-bottom: 3px solid #3997dc;
+  border-radius: 10px;
+  background: #071520;
+  opacity: 0;
+  animation: technologyCardEnter 0.65s ease forwards;
+  animation-delay: calc(var(--card-index, 0) * 100ms);
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.technology-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--icon-color),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.technology-card:hover {
+  transform: translateY(-6px);
+  border-bottom-color: var(--icon-color);
+  background: #0a1b29;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.technology-card:hover::before {
+  opacity: 0.8;
+}
+
+/* Icon */
+
+.technology-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: var(--icon-color);
+  font-size: 32px;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.technology-icon svg {
+  display: block;
+  width: 78px;
+  height: 78px;
+}
+
+.technology-card:hover .technology-icon {
+  transform: translateY(-3px) scale(1.1);
+}
+
+/* Text */
+
+.technology-title {
+  margin: 0 0 9px;
+  color: #f8f9fc;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.technology-description {
+  margin: 0;
+  color: #e0e4ea;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+/* Entrance animation */
+
+@keyframes technologyCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .technologies-section {
+    padding: 50px 4% 40px;
+  }
+
+  .technologies-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .technology-card {
+    min-height: 235px;
+    padding: 24px 18px;
+  }
+
+  .technologies-intro {
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 560px) {
+  .technologies-section {
+    padding: 42px 18px 35px;
+  }
+
+  .technologies-header {
+    margin-bottom: 25px;
+  }
+
+  .technologies-heading {
+    font-size: clamp(27px, 7vw, 34px);
+    letter-spacing: -0.8px;
+  }
+
+  .technologies-intro {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .technologies-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .technology-card {
+    min-height: auto;
+    padding: 23px 20px 25px;
+  }
+
+  .technology-icon {
+    margin-bottom: 12px;
+  }
+
+  .technology-title {
+    font-size: 15px;
+  }
+
+  .technology-description {
+    font-size: 12px;
+    line-height: 1.85;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-card {
+    opacity: 1;
+    animation: none;
+  }
+
+  .technology-card,
+  .technology-icon,
+  .technologies-heading span {
+    transition: none;
+  }
+}
