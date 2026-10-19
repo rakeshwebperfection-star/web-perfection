@@ -1,9 +1,9 @@
 
 import React from "react";
 import "@/assets/css/footer.css";
+import CurrentYear from "@/assets/components/current-year";
 
 function Footer() {
-  const currentYear = new Date().getFullYear();
 
   const navLinks = [
     { name: "HOME", href: "/" },
@@ -94,7 +94,7 @@ const socialLinks = [
                 href={link.href}
                 className="footer-nav-link"
                 key={link.name}
-                style={{ "--link-index": index }}
+                style={{ "--link-index": index } as React.CSSProperties}
               >
                 {link.name}
                 <span className="footer-link-arrow" aria-hidden="true">↗</span>
@@ -111,7 +111,7 @@ const socialLinks = [
                 aria-label={social.name}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ "--social-index": index }}
+                style={{ "--social-index": index } as React.CSSProperties}
               >
                 {social.icon}
               </a>
@@ -122,7 +122,7 @@ const socialLinks = [
         {/* Bottom Footer */}
         <div className="footer-bottom">
           <p className="footer-copyright">
-            Copyrights 2014–{currentYear} © Web Perfection Technology
+            Copyrights 2014–<CurrentYear /> © Web Perfection Technology
           </p>
 
           <div className="footer-legal">

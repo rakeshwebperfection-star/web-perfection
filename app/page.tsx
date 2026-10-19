@@ -1,6 +1,6 @@
 import Header from "@/assets/components/header";
 import Footer from "@/assets/components/footer";
-import Homepage from "@/pages/home-page";
+import Homepage from "@/assets/components/home-page/home-page";
 
 export default function Home() {
   return (

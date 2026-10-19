@@ -38,7 +38,7 @@ function Header() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
 
-    const handleEscape = (event) => {
+    const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMenuOpen(false);
         setOpenDropdown("");
@@ -58,7 +58,7 @@ function Header() {
     setOpenDropdown("");
   };
 
-  const toggleDropdown = (name) => {
+  const toggleDropdown = (name: string) => {
     setOpenDropdown((current) => (current === name ? "" : name));
   };
 
