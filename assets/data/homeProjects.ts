@@ -1,5 +1,5 @@
 
-import type { FeaturedProject } from "@/components/FeaturedWork";
+import type { FeaturedProject } from "@/assets/components/featuredWork";
 import laurenMinesStudio from "@/assets/images/home/laurenminesstudio.png";
 import bodyWellness from "@/assets/images/home/bodyWellness.png";
 import alphaedge from "@/assets/images/home/alphaedge.png";

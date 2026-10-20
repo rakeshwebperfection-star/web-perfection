@@ -1,12 +1,12 @@
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 
 export interface BlogPost {
   title: string;
   description: string;
   date: string;
-  image: string;
+  image: string | StaticImageData;
   imageAlt: string;
   link: string;
 }
