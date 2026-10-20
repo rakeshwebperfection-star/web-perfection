@@ -109,9 +109,8 @@ function Header() {
           </div>
 
           <div className="dropdown-menu">
-            <a href="/about" onClick={closeMenu}>About Us</a>
-            <a href="/our-team" onClick={closeMenu}>Our Team</a>
-            <a href="/mission" onClick={closeMenu}>Our Mission</a>
+            <a href="/portfolio" onClick={closeMenu}>Portfolio</a>
+            <a href="/testimonial" onClick={closeMenu}>Testimonial</a>
           </div>
         </div>
 
@@ -132,10 +131,14 @@ function Header() {
           </div>
 
           <div className="dropdown-menu">
-            <a href="/services" onClick={closeMenu}>All Services</a>
-            <a href="/web-development" onClick={closeMenu}>Web Development</a>
-            <a href="/digital-marketing" onClick={closeMenu}>Digital Marketing</a>
-            <a href="/ui-ux-design" onClick={closeMenu}>UI/UX Design</a>
+            <a href="/" onClick={closeMenu}>UI/UX Design</a>
+            <a href="/" onClick={closeMenu}>Web Development</a>
+            <a href="/" onClick={closeMenu}>App Development</a>
+            <a href="/" onClick={closeMenu}>Software Testing</a>
+            <a href="/" onClick={closeMenu}>Content Writing</a>
+            <a href="/" onClick={closeMenu}>GMB Optimization</a>
+            <a href="/" onClick={closeMenu}>Social Media Optimization</a>
+            <a href="/" onClick={closeMenu}>Search Engine Optimization</a>
           </div>
         </div>
 
