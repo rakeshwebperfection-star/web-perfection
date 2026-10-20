@@ -1,10 +1,10 @@
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 
 export interface FeaturedProject {
   name: string;
-  image: string;
+  image: string | StaticImageData;
   link: string;
   category?: string;
   imageAlt?: string;
