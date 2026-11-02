@@ -128,8 +128,19 @@
   color: #36b9ff;
 }
 
-.footer-nav-link:hover::after {
+.footer-nav-link:hover::after,
+.footer-nav-link.active::after {
   width: 100%;
+}
+
+.footer-nav-link.active {
+  color: #36b9ff;
+  font-weight: 600;
+}
+
+.footer-nav-link.active .footer-link-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .footer-link-arrow {

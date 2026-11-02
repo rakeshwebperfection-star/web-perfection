@@ -1,18 +1,18 @@
+"use client";
 
 import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import "@/assets/css/footer.css";
 import CurrentYear from "@/assets/components/current-year";
 
-function Footer() {
-
-  const navLinks = [
-    { name: "HOME", href: "/" },
-    { name: "ABOUT US", href: "/about" },
-    { name: "SERVICE", href: "/services" },
-    { name: "BLOG", href: "/blog" },
-    { name: "CONTACT US", href: "/contact" },
-  ];
-
+const navLinks = [
+  { name: "HOME", href: "/" },
+  { name: "ABOUT US", href: "/about" },
+  { name: "SERVICE", href: "/services" },
+  { name: "BLOG", href: "/blog" },
+  { name: "CONTACT US", href: "/contact" },
+];
 
 const socialLinks = [
   {
@@ -78,28 +78,44 @@ const socialLinks = [
   },
 ];
 
+function Footer() {
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <footer className="site-footer">
       <div className="footer-container">
         {/* Main Footer */}
         <div className="footer-main">
-          <a href="/" className="logo" aria-label="Home">
-            <img src="https://webperfection.co.in/img/logowhite.png" alt="Logo" className="logo-icon" />
-        </a>
+          <Link href="/" className="logo" aria-label="Home">
+            <img
+              src="https://webperfection.co.in/img/logowhite.png"
+              alt="Logo"
+              className="logo-icon"
+            />
+          </Link>
 
           <nav className="footer-navigation" aria-label="Footer navigation">
-            {navLinks.map((link, index) => (
-              <a
-                href={link.href}
-                className="footer-nav-link"
-                key={link.name}
-                style={{ "--link-index": index } as React.CSSProperties}
-              >
-                {link.name}
-                <span className="footer-link-arrow" aria-hidden="true">↗</span>
-              </a>
-            ))}
+            {navLinks.map((link, index) => {
+              const active = isActive(link.href);
+
+              return (
+                <Link
+                  href={link.href}
+                  className={`footer-nav-link${active ? " active" : ""}`}
+                  aria-current={active ? "page" : undefined}
+                  key={link.name}
+                  style={{ "--link-index": index } as React.CSSProperties}
+                >
+                  {link.name}
+                  <span className="footer-link-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="footer-socials">
@@ -126,9 +142,9 @@ const socialLinks = [
           </p>
 
           <div className="footer-legal">
-            <a href="/privacy-policy">Privacy Policy</a>
+            <Link href="/privacy-policy">Privacy Policy</Link>
             <span className="legal-divider">|</span>
-            <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+            <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
           </div>
         </div>
       </div>

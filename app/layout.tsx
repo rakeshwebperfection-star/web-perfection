@@ -1,6 +1,8 @@
 
 import type { Metadata } from "next";
 import { Rethink_Sans, DM_Sans } from "next/font/google";
+import Header from "@/assets/components/header";
+import Footer from "@/assets/components/footer";
 import "./globals.css";
 
 const rethinkSans = Rethink_Sans({
@@ -14,7 +16,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Best Web Design and Development Company |  Web Perfection",
+  title: "Best Web Design and Development Company | Web Perfection",
   description: "Best web design and development company offering innovative solutions to enhance your online presence and grow your business.",
 };
 
@@ -27,7 +29,11 @@ export default function RootLayout({
       className={`${rethinkSans.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">
-        {children}
+        <Header />
+        <main className="main-content">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

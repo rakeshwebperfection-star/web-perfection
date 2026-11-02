@@ -38,10 +38,10 @@ function About() {
       id="about"
     >
       <div className="about-decoration about-decoration-top">
-        <img className="about-illustration" src={aboutDecorationTop.src ?? aboutDecorationTop} alt="Creative team working together on digital projects" />
+        <Image className="about-illustration" src={aboutDecorationTop} alt="Creative team working together on digital projects" width={700} height={560} />
       </div>
       <div className="about-decoration about-decoration-bottom">
-        <img className="about-illustration" src={aboutDecorationBottom.src ?? aboutDecorationBottom} alt="Creative team working together on digital projects" />
+        <Image className="about-illustration" src={aboutDecorationBottom} alt="Creative team working together on digital projects" />
       </div>
 
       <div className="about-container">
@@ -49,11 +49,8 @@ function About() {
         <div className="about-visual">
           <div className="about-visual-glow" />
 
-          <img className="about-illustration" src={AboutIllustration.src ?? AboutIllustration} alt="Creative team working together on digital projects" />
+          <Image className="about-illustration" src={AboutIllustration} alt="Creative team working together on digital projects" />
 
-          <div className="about-floating-dot about-dot-one" />
-          <div className="about-floating-dot about-dot-two" />
-          <div className="about-floating-dot about-dot-three" />
         </div>
 
         {/* Right Content */}

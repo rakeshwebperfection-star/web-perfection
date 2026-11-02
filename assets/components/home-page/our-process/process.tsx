@@ -6,11 +6,11 @@ import finalMob from "@/assets/images/home/final-GIF-mob.gif";
 function ProcessSec() {
   return (
     <section className="relative overflow-hidden px-5 py-16 bg-[#2a2a2a] text-white sm:px-8 lg:px-14 lg:py-20">
-      <div className="relative mx-auto max-w-[1400px]">
+      <div className="relative mx-auto max-w-350">
         <header className="mb-8 text-center sm:mb-10">
           <h2 className="text-3xl font-medium sm:text-4xl lg:text-5xl">
             Our{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Process
             </span>
           </h2>

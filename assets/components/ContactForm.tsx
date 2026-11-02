@@ -3,7 +3,25 @@
 
 import React, { useState } from "react";
 
-export default function FormSection() {
+interface ContactFormProps {
+  badgeText?: string;
+  title?: string;
+  highlightedTitle?: string;
+  highlightStyle?: "gradient" | "italic";
+  description?: string;
+  directEmail?: string;
+  submitLabel?: string;
+}
+
+export default function FormSection({
+  badgeText = "Get in Touch with",
+  title = "Our",
+  highlightedTitle = "Experts",
+  highlightStyle = "gradient",
+  description = "Connect seamlessly with the brilliance of Web Perfection. Our dedicated experts await your queries, ready to transform your ideas into digital excellence. Elevate your online presence—get in touch with the masters at Web Perfection today.",
+  directEmail,
+  submitLabel = "Submit",
+}: ContactFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -26,52 +44,66 @@ export default function FormSection() {
   };
 
   const inputClass =
-    "w-full min-w-0 rounded-lg border border-[#123e59] bg-transparent px-4 py-4 text-[15px] text-white outline-none placeholder:text-white/85 transition focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 text-ellipsis";
+    "w-full min-w-0 rounded-lg border border-[#123e59] bg-transparent px-4 py-3.5 text-[14px] text-white outline-none placeholder:text-white/85 transition focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 text-ellipsis";
 
   return (
     <section className="bg-[#06131e] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-12 lg:py-20">
-      <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-xl bg-gradient-to-b from-[#0c1c2a] via-black to-[#0c1c2a] px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-14 shadow-2xs">
+      <div className="relative mx-auto max-w-300 overflow-hidden rounded-xl bg-linear-to-b from-[#0c1c2a] via-black to-[#0c1c2a] px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-14 shadow-2xs">
         {/* Decorative background curves */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-36 top-1/2 h-[430px] w-[430px] -translate-y-1/2 rounded-full border border-white/10 sm:-left-44 sm:h-[500px] sm:w-[500px]"
+          className="pointer-events-none absolute -left-36 top-1/2 h-107 w-107 -translate-y-1/2 rounded-full border border-white/10 sm:-left-44 sm:h-125 sm:w-125"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-[380px] w-[380px] -translate-y-1/2 rounded-full border border-white/[0.08] sm:-left-40 sm:h-[450px] sm:w-[450px]"
+          className="pointer-events-none absolute -left-32 top-1/2 h-95 w-95 -translate-y-1/2 rounded-full border border-white/8 sm:-left-40 sm:h-112 sm:w-md"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-28 top-1/2 h-[330px] w-[330px] -translate-y-1/2 rounded-full border border-white/[0.07] sm:-left-36 sm:h-[400px] sm:w-[400px]"
+          className="pointer-events-none absolute -left-28 top-1/2 h-82 w-82 -translate-y-1/2 rounded-full border border-white/[0.07] sm:-left-36 sm:h-100 sm:w-100"
         />
 
         <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[1fr_1.08fr] lg:gap-14">
           {/* Left content */}
           <div className="px-1 py-2 sm:px-3 lg:py-8">
             <span className="inline-flex rounded-full border border-sky-500 px-4 py-1 text-[13px] text-white/90">
-              Get in Touch with
+              {badgeText}
             </span>
 
-            <h2 className="mt-5 text-4xl font-normal sm:text-5xl lg:text-[42px] xl:text-6xl">
-              Our{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text font-medium text-transparent">
-                Experts
+            <h2 className="mt-5 text-4xl font-semibold sm:text-5xl lg:text-[42px] xl:text-6xl">
+              {title}{" "}
+              <span
+                className={
+                  highlightStyle === "italic"
+                    ? "italic text-white"
+                    : "bg-linear-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
+                }
+              >
+                {highlightedTitle}
               </span>
             </h2>
 
-            <p className="mt-4 max-w-[390px] text-xs leading-6 text-white/85 sm:text-[16px]">
-              Connect seamlessly with the brilliance of Web Perfection. Our
-              dedicated experts await your queries, ready to transform your
-              ideas into digital excellence. Elevate your online presence—get
-              in touch with the masters at Web Perfection today.
-            </p>
+            {description && (
+              <p className="mt-4 max-w-98 text-xs leading-6 text-white/85 sm:text-[16px]">
+                {description}
+              </p>
+            )}
+
+            {directEmail && (
+              <a
+                href={`mailto:${directEmail}`}
+                className="mt-3 inline-block text-sm text-cyan-400 transition-colors hover:text-cyan-200 sm:text-base"
+              >
+                {directEmail}
+              </a>
+            )}
 
             {/* Social links */}
             <div className="mt-5 flex items-center gap-2">
               <a
                 href="https://www.facebook.com/"
                 aria-label="Facebook"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#15304e] text-lg font-bold transition hover:bg-blue-600"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15304e] text-lg font-bold transition hover:bg-blue-600"
               >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +122,7 @@ export default function FormSection() {
               <a
                 href="https://www.twitter.com/"
                 aria-label="Twitter"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#15304e] text-lg font-bold transition hover:bg-blue-600"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15304e] text-lg font-bold transition hover:bg-blue-600"
               >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +141,7 @@ export default function FormSection() {
               <a
                 href="https://www.linkedin.com/"
                 aria-label="LinkedIn"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#15304e] text-lg font-bold transition hover:bg-blue-600"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15304e] text-lg font-bold transition hover:bg-blue-600"
               >                
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +159,7 @@ export default function FormSection() {
               <a
                 href="https://www.instagram.com/"
                 aria-label="Instagram"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#15304e] text-lg transition hover:bg-purple-600"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15304e] text-lg transition hover:bg-purple-600"
               >
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -229,16 +261,16 @@ export default function FormSection() {
               </div>
 
               <textarea
-                className={`${inputClass} mt-2 min-h-[100px] resize-y sm:min-h-[80px]`}
+                className={`${inputClass} mt-2 min-h-25 resize-y sm:min-h-35`}
                 name="comment"
-                placeholder="Comment"
+                placeholder="Message"
                 aria-label="Comment"
                 value={formData.comment}
                 onChange={handleChange}
               />
 
               <button type="submit" className="mt-4 about-button cursor-pointer">
-                SEND
+                {submitLabel}
                 <span aria-hidden="true" className="text-sm">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.1381 7.52867L10.4714 2.86201C10.3457 2.74057 10.1773 2.67337 10.0025 2.67489C9.82768 2.67641 9.66047 2.74652 9.53687 2.87013C9.41326 2.99373 9.34315 3.16094 9.34163 3.33574C9.34011 3.51054 9.40731 3.67894 9.52875 3.80467L13.0574 7.33334H1.33341C1.1566 7.33334 0.987034 7.40358 0.86201 7.5286C0.736986 7.65363 0.666748 7.8232 0.666748 8.00001C0.666748 8.17682 0.736986 8.34639 0.86201 8.47141C0.987034 8.59644 1.1566 8.66667 1.33341 8.66667H13.0574L9.52875 12.1953C9.46507 12.2568 9.41429 12.3304 9.37935 12.4117C9.34441 12.4931 9.32602 12.5806 9.32525 12.6691C9.32448 12.7576 9.34135 12.8454 9.37487 12.9273C9.40839 13.0092 9.45789 13.0837 9.52048 13.1463C9.58308 13.2089 9.65751 13.2584 9.73945 13.2919C9.82138 13.3254 9.90916 13.3423 9.99768 13.3415C10.0862 13.3407 10.1737 13.3223 10.255 13.2874C10.3364 13.2525 10.4099 13.2017 10.4714 13.138L15.1381 8.47134C15.2631 8.34632 15.3333 8.17678 15.3333 8.00001C15.3333 7.82323 15.2631 7.65369 15.1381 7.52867Z" fill="white"></path></svg>
                 </span>

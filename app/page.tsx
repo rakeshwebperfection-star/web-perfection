@@ -1,15 +1,27 @@
-import Header from "@/assets/components/header";
-import Footer from "@/assets/components/footer";
-import Homepage from "@/assets/components/home-page/home-page";
+import Hero from '@/assets/components/home-page/hero-section/hero';
+import About from '@/assets/components/home-page/about/about';
+import Technologies from '@/assets/components/home-page/technologies/page';
+import FeaturedWork from '@/assets/components/home-page/feature/page';
+import FeaturedBlog from '@/assets/components/home-page/featureBlog/page';
+import Testimonials from '@/assets/components/home-page/testimonial/Testimonials';
+import Process from '@/assets/components/home-page/our-process/process';
+import FormSection from '@/assets/components/ContactForm';
+import CounterSection from '@/assets/components/CounterSection';
+import Marquee from '@/assets/components/Marquee';
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main className="flex w-full max-w-full flex-col justify-between">
-        <Homepage />
-      </main>
-      <Footer />
+      <Hero />
+      <About />
+      <Technologies />
+      <FeaturedWork />
+      <FeaturedBlog />
+      <Testimonials />
+      <Process />
+      <FormSection />
+      <CounterSection />
+      <Marquee />
     </>
   );
 }

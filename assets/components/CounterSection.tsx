@@ -62,7 +62,7 @@ export default function CounterSection() {
       ref={sectionRef}
       className="bg-[#030609] px-4 py-14 sm:px-6 sm:py-16 lg:px-10"
     >
-      <div className="mx-auto max-w-[1200px] rounded-xl bg-[#111315] px-3 py-7 shadow-[0_0_45px_rgba(71,134,224,0.25)] sm:px-5 sm:py-9 lg:px-4">
+      <div className="mx-auto max-w-300 rounded-xl bg-[#111315] px-3 py-7 shadow-[0_0_45px_rgba(71,134,224,0.25)] sm:px-5 sm:py-9 lg:px-4">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((stat, index) => (
             <div

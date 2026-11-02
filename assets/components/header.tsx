@@ -1,12 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import "@/assets/css/header.css";
+import Link from "next/link";
+import Image from "next/image";
 
-function Header() {
+function HeaderContent({ pathname }: { pathname: string }) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState("");
+  const [suppressHover, setSuppressHover] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +60,7 @@ function Header() {
   const closeMenu = () => {
     setMenuOpen(false);
     setOpenDropdown("");
+    setSuppressHover(true); // click ke baad hover-open block
   };
 
   const toggleDropdown = (name: string) => {
@@ -65,9 +70,9 @@ function Header() {
   return (
     <header className="header">
       {/* Logo */}
-      <a href="/" className="logo" aria-label="Home">
-        <img src="https://webperfection.co.in/img/logowhite.png" alt="Logo" className="logo-icon" />
-      </a>
+      <Link href="/" className="logo" aria-label="Home">
+        <Image src="https://webperfection.co.in/img/logowhite.png" alt="Logo" className="logo-icon" width={180} height={60} />
+      </Link>
 
       {/* Mobile Menu Toggle */}
       <button
@@ -90,12 +95,12 @@ function Header() {
       <nav id="primary-navigation" className={`nav-menu ${menuOpen ? "menu-open" : ""}`} aria-label="Main navigation" aria-hidden={!menuOpen && undefined}>
         <button type="button" className="sidebar-close" onClick={closeMenu} aria-label="Close navigation menu">&times;</button>
 
-        <a href="/" className="nav-link active" onClick={closeMenu}>Home</a>
+        <Link href="/" className={`nav-link ${pathname === "/" ? "active" : ""}`} onClick={closeMenu}>Home</Link>
 
         {/* About Dropdown */}
-        <div className={`nav-item has-dropdown ${openDropdown === "about" ? "dropdown-open" : ""}`}>
+        <div className={`nav-item has-dropdown ${openDropdown === "about" ? "dropdown-open" : ""} ${suppressHover ? "no-hover" : ""}`} onMouseLeave={() => setSuppressHover(false)}>
           <div className="nav-item-heading">
-            <a href="/about" className="nav-link" onClick={closeMenu}>About Us</a>
+            <Link href="/about" className={`nav-link ${pathname === "/about" ? "active" : ""}`} onClick={closeMenu}>About Us</Link>
 
             <button
               type="button"
@@ -109,15 +114,15 @@ function Header() {
           </div>
 
           <div className="dropdown-menu">
-            <a href="/portfolio" onClick={closeMenu}>Portfolio</a>
-            <a href="/testimonial" onClick={closeMenu}>Testimonial</a>
+            <Link href="/portfolio" onClick={closeMenu}>Portfolio</Link>
+            <Link href="/testimonial" onClick={closeMenu}>Testimonial</Link>
           </div>
         </div>
 
         {/* Services Dropdown */}
-        <div className={`nav-item has-dropdown ${openDropdown === "services" ? "dropdown-open" : ""}`}>
+        <div className={`nav-item has-dropdown ${openDropdown === "services" ? "dropdown-open" : ""} ${suppressHover ? "no-hover" : ""}`} onMouseLeave={() => setSuppressHover(false)} >
           <div className="nav-item-heading">
-            <a href="/services" className="nav-link" onClick={closeMenu}>Services</a>
+            <Link href="/services" className={`nav-link ${pathname === "/services" ? "active" : ""}`} onClick={closeMenu}>Services</Link>
 
             <button
               type="button"
@@ -131,33 +136,33 @@ function Header() {
           </div>
 
           <div className="dropdown-menu">
-            <a href="/" onClick={closeMenu}>UI/UX Design</a>
-            <a href="/" onClick={closeMenu}>Web Development</a>
-            <a href="/" onClick={closeMenu}>App Development</a>
-            <a href="/" onClick={closeMenu}>Software Testing</a>
-            <a href="/" onClick={closeMenu}>Content Writing</a>
-            <a href="/" onClick={closeMenu}>GMB Optimization</a>
-            <a href="/" onClick={closeMenu}>Social Media Optimization</a>
-            <a href="/" onClick={closeMenu}>Search Engine Optimization</a>
+            <Link href="/" onClick={closeMenu}>UI/UX Design</Link>
+            <Link href="/" onClick={closeMenu}>Web Development</Link>
+            <Link href="/" onClick={closeMenu}>App Development</Link>
+            <Link href="/" onClick={closeMenu}>Software Testing</Link>
+            <Link href="/" onClick={closeMenu}>Content Writing</Link>
+            <Link href="/" onClick={closeMenu}>GMB Optimization</Link>
+            <Link href="/" onClick={closeMenu}>Social Media Optimization</Link>
+            <Link href="/" onClick={closeMenu}>Search Engine Optimization</Link>
           </div>
         </div>
 
-        <a href="/career" className="nav-link" onClick={closeMenu}>Career</a>
+        <Link href="/career" className={`nav-link ${pathname === "/career" ? "active" : ""}`} onClick={closeMenu}>Career</Link>
 
-        <a href="/blog" className="nav-link" onClick={closeMenu}>Blog</a>
+        <Link href="/blog" className={`nav-link ${pathname === "/blog" ? "active" : ""}`} onClick={closeMenu}>Blog</Link>
 
-        <a href="/contact" className="nav-link" onClick={closeMenu}>Contact Us</a>
+        <Link href="/contact" className={`nav-link ${pathname === "/contact" ? "active" : ""}`} onClick={closeMenu}>Contact Us</Link>
 
         {/* Quote Button Inside Mobile Sidebar */}
-        <a href="/contact" className="quote-btn mobile-quote" onClick={closeMenu}>
+        <Link href="/get-a-quote" className="quote-btn mobile-quote" onClick={closeMenu}>
           <span>Get A Quote</span>
-        </a>
+        </Link>
       </nav>
 
       {/* Desktop Quote Button */}
-      <a href="/contact" className="quote-btn desktop-quote">
+      <Link href="/get-a-quote" className="quote-btn desktop-quote">
         <span>Get A Quote</span>
-      </a>
+      </Link>
 
       {/* Scroll Progress */}
       <div className="scroll-progress-track">
@@ -165,6 +170,12 @@ function Header() {
       </div>
     </header>
   );
+}
+
+function Header() {
+  const pathname = usePathname();
+
+  return <HeaderContent key={pathname} pathname={pathname} />;
 }
 
 export default Header;

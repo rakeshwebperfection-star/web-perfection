@@ -4,8 +4,8 @@ import { blogPosts } from "@/assets/data/blogPosts";
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <FeaturedBlog posts={blogPosts} />
-    </main>
+    </>
   );
 }

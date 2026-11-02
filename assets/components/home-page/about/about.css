@@ -95,49 +95,7 @@
   }
 }
 
-/* Floating dots */
 
-.about-floating-dot {
-  position: absolute;
-  z-index: 3;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  animation: aboutDotFloat 3s ease-in-out infinite;
-}
-
-.about-dot-one {
-  top: 16%;
-  left: 23%;
-  background: #a855f7;
-}
-
-.about-dot-two {
-  top: 30%;
-  right: 13%;
-  width: 8px;
-  height: 8px;
-  background: #facc15;
-  animation-delay: 0.7s;
-}
-
-.about-dot-three {
-  right: 24%;
-  bottom: 18%;
-  background: #39c6b4;
-  animation-delay: 1.3s;
-}
-
-@keyframes aboutDotFloat {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-
-  50% {
-    transform: translateY(-13px) scale(1.2);
-  }
-}
 
 /* ==============================
    RIGHT CONTENT
@@ -198,60 +156,6 @@
   font-size: 17px;
   font-weight: 400;
   line-height: 1.9;
-}
-
-/* ==============================
-   READ MORE BUTTON
-============================== */
-
-.about-button {
-    color: #fff;
-    min-height: 48px;
-    font-size: 16px;
-    font-weight: 400;
-    font-family: var(--font-heading), sans-serif;
-    background: linear-gradient(110deg, #429de7, #7130df);
-    border-radius: 50px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 0 24px;
-    text-decoration: none;
-    transition: transform .3s, box-shadow .3s;
-    display: inline-flex;
-    position: relative;
-    overflow: hidden;
-}
-
-.about-button::before {
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 70%;
-  height: 100%;
-  content: "";
-  transform: skewX(-25deg);
-  background: rgba(255, 255, 255, 0.22);
-  transition: left 0.5s ease;
-}
-
-.about-button:hover::before {
-  left: 140%;
-}
-
-.about-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(105, 63, 226, 0.3);
-}
-
-.about-button-arrow {
-  font-size: 19px;
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
-
-.about-button:hover .about-button-arrow {
-  transform: translateX(4px);
 }
 
 /* ==============================
