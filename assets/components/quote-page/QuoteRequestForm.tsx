@@ -2,17 +2,31 @@
 
 import { useState, type FormEvent } from "react";
 import { CloudUpload } from "lucide-react";
+import Image from "next/image";
+
+import quoteLeft from "@/assets/images/quote/get-left-pattern.png";
+import quoteRight from "@/assets/images/quote/get-right-pattern.png";
 
 const budgetOptions = [
-  "$1k–$5k",
-  "$5k–$8k",
-  "$8k–$15k+",
-  "$15k–$25k+",
-  "$25k+",
+  "$1k-$5k",
+  "$5k-$8k",
+  "$8k-$15k+",
+  "$15k-$25k+",
+  "$25k-$35k",
+  "$35k-$45k+",
+  "$45k-$60k+",
+  "$60k-$70k+",
+  "$70k-$80k+",
+  "$80k-$90k",
+  "$90k-$100k+",
+  "$100k-$120k+",
+  "$20k-$140k+",
+  "$140k-$160k+",
+  "$200k+",
 ];
 
 const fieldClass =
-  "h-11 w-full min-w-0 rounded-lg border border-[#123e59] bg-transparent px-3 text-sm text-white outline-none transition placeholder:text-white/70 focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30";
+  "w-full min-w-0 rounded-lg border border-[#123e59] bg-transparent px-4 py-[12px] text-sm text-white outline-none transition placeholder:text-white/70 focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30";
 
 export default function QuoteRequestForm() {
   const [budgetIndex, setBudgetIndex] = useState(2);
@@ -46,20 +60,19 @@ export default function QuoteRequestForm() {
   }
 
   return (
-    <section className="bg-[#06131e] px-4 py-10 text-white sm:px-6 sm:py-12 lg:px-12 lg:py-14">
-      <div className="relative mx-auto max-w-300 overflow-hidden rounded-xl bg-linear-to-br from-[#0c1c2a] via-black to-[#0c1c2a] px-4 py-7 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-44 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full opacity-35 [background:repeating-radial-gradient(ellipse_at_center,transparent_0_8px,rgba(142,174,197,0.2)_9px_10px)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-52 -right-36 h-[25rem] w-[25rem] rounded-full opacity-25 [background:repeating-radial-gradient(ellipse_at_center,transparent_0_8px,rgba(142,174,197,0.2)_9px_10px)]"
-        />
+    <section className="bg-[#06131e] px-4 py-10 text-white sm:px-6 sm:py-12 lg:px-12 lg:py-18">
+      <div className="relative mx-auto max-w-300 overflow-hidden rounded-xl bg-linear-to-br from-[#0c1c2a] via-black to-[#0c1c2a] px-4 py-7 sm:px-8 sm:py-9 lg:px-10 lg:py-14">
+        {/* Decorative background */}
+      <div className="absolute -left-14 top-0 opacity-50">
+        <Image className="about-illustration" src={quoteLeft.src ?? quoteLeft} alt="Creative team working together on digital projects" width={700} height={560} />
+      </div>
+      <div className="absolute -right-14 bottom-0 opacity-50">
+        <Image className="about-illustration" src={quoteRight.src ?? quoteRight} alt="Creative team working together on digital projects" width={380} height={340} />
+      </div>
 
         <form
           onSubmit={handleSubmit}
-          className="relative z-10 mx-auto max-w-2xl rounded-xl bg-[#071521]/95 p-4 shadow-2xl sm:p-6"
+          className="relative z-10 mx-auto max-w-2xl rounded-xl bg-[#071521]/95 p-4 shadow-2xl sm:p-8"
         >
           <div className="grid gap-2.5 sm:grid-cols-2">
             <input
@@ -123,13 +136,13 @@ export default function QuoteRequestForm() {
               aria-label="How can we help"
             />
             <input
-              className={`${fieldClass} [color-scheme:dark]`}
+              className={`${fieldClass}`}
               name="availability"
               type="date"
               aria-label="Availability date"
             />
 
-            <fieldset className="flex min-h-11 flex-wrap items-center gap-x-3 gap-y-2 text-xs text-white/85 sm:pl-2">
+            <fieldset className="flex min-h-11 flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/85 sm:pl-2">
               <legend className="sr-only">Preferred contact method</legend>
               <span aria-hidden="true">Connect Via</span>
               {["Skype", "WhatsApp"].map((method) => (
@@ -148,7 +161,7 @@ export default function QuoteRequestForm() {
           </div>
 
           <div className="mt-6">
-            <div className="mb-2 flex items-center justify-between gap-3 text-xs text-white/85">
+            <div className="mb-2 flex items-center justify-between gap-3 text-md text-white/85">
               <label htmlFor="project-budget">Project Budget</label>
               <output htmlFor="project-budget" className="font-medium text-cyan-300">
                 {budgetOptions[budgetIndex]}
@@ -169,7 +182,7 @@ export default function QuoteRequestForm() {
 
           <label
             htmlFor="requirements-file"
-            className="mt-6 flex min-h-28 cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-sky-500/80 bg-[#102b4e] px-4 py-5 text-center transition hover:bg-[#15365f]"
+            className="mt-6 flex min-h-40 cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-sky-500/80 bg-[#102b4e] px-4 py-5 text-center transition hover:bg-[#15365f]"
           >
             <CloudUpload aria-hidden="true" className="h-9 w-9" />
             <span className="mt-2 text-xs text-white/85">

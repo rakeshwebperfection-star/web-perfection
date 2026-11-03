@@ -30,7 +30,7 @@ export default function HeroSection({
   compact = false,
 }: AboutSectionProps) {
   return (
-    <section className="relative isolate overflow-hidden border-b border-blue-900/50 bg-[#030609] text-white">
+    <section className="relative isolate overflow-hidden bg-[#030609] text-white">
       {/* Decorative background */}
       <div className="about-decoration about-decoration-top">
         <Image className="about-illustration" src={aboutDecorationTop.src ?? aboutDecorationTop} alt="Creative team working together on digital projects" width={700} height={560} />
@@ -42,7 +42,7 @@ export default function HeroSection({
       <div
         className={`mx-auto grid ${
           compact
-            ? "min-h-[24rem] max-w-7xl gap-5 py-10 lg:min-h-[24rem]"
+            ? "min-h-96 max-w-7xl gap-5 py-10 lg:min-h-96"
             : "min-h-125 max-w-360 gap-10 py-16 lg:min-h-150 lg:gap-12"
         } grid-cols-1 items-center px-5 sm:px-8 lg:grid-cols-2 lg:px-12`}
       >
