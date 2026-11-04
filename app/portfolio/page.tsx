@@ -8,8 +8,7 @@ import portfolioHero from "@/assets/images/services/hero.png";
 
 export const metadata: Metadata = {
   title: "Our Portfolio | Web Perfection",
-  description:
-    "Explore Web Perfection's e-commerce, CMS, framework, and UI/UX projects.",
+  description: "Explore Web Perfection's e-commerce, CMS, framework, and UI/UX projects.",
 };
 
 const portfolioFilters = [

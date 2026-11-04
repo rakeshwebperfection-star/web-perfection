@@ -64,10 +64,10 @@ export default function QuoteRequestForm() {
       <div className="relative mx-auto max-w-300 overflow-hidden rounded-xl bg-linear-to-br from-[#0c1c2a] via-black to-[#0c1c2a] px-4 py-7 sm:px-8 sm:py-9 lg:px-10 lg:py-14">
         {/* Decorative background */}
       <div className="absolute -left-14 top-0 opacity-50">
-        <Image className="about-illustration" src={quoteLeft.src ?? quoteLeft} alt="Creative team working together on digital projects" width={700} height={560} />
+        <Image className="about-illustration" src={quoteLeft.src ?? quoteLeft} alt="Creative team working together on digital projects" width={255} height={666} />
       </div>
       <div className="absolute -right-14 bottom-0 opacity-50">
-        <Image className="about-illustration" src={quoteRight.src ?? quoteRight} alt="Creative team working together on digital projects" width={380} height={340} />
+        <Image className="about-illustration" src={quoteRight.src ?? quoteRight} alt="Creative team working together on digital projects" width={253} height={552} />
       </div>
 
         <form
@@ -223,7 +223,7 @@ export default function QuoteRequestForm() {
             </p>
           )}
 
-          <button type="submit" className="about-button mt-5 min-h-0 px-4 py-2 text-xs">
+          <button type="submit" className="about-button mt-5 min-h-0 px-4 py-2 text-xs cursor-pointer">
             Submit <span aria-hidden="true">→</span>
           </button>
         </form>
