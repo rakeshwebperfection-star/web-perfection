@@ -178,7 +178,8 @@
 }
 
 .dropdown-menu a:hover,
-.dropdown-menu a:focus-visible {
+.dropdown-menu a:focus-visible,
+.dropdown-menu a.active {
   color: #00c3ff;
   background: rgba(0, 183, 255, 0.09);
   padding-left: 19px;

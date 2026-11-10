@@ -39,6 +39,13 @@ body {
   font-family: var(--font-body), sans-serif;
 }
 
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
 /* ==============================
    READ MORE BUTTON
 ============================== */

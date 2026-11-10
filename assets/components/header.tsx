@@ -100,7 +100,7 @@ function HeaderContent({ pathname }: { pathname: string }) {
         {/* About Dropdown */}
         <div className={`nav-item has-dropdown ${openDropdown === "about" ? "dropdown-open" : ""} ${suppressHover ? "no-hover" : ""}`} onMouseLeave={() => setSuppressHover(false)}>
           <div className="nav-item-heading">
-            <Link href="/about" className={`nav-link ${pathname === "/about" ? "active" : ""}`} onClick={closeMenu}>About Us</Link>
+            <Link href="/about" className={`nav-link ${pathname === "/about" || pathname === "/testimonial" ? "active" : ""}`} onClick={closeMenu}>About Us</Link>
 
             <button
               type="button"
@@ -115,14 +115,14 @@ function HeaderContent({ pathname }: { pathname: string }) {
 
           <div className="dropdown-menu">
             <Link href="/portfolio" onClick={closeMenu}>Portfolio</Link>
-            <Link href="/testimonial" onClick={closeMenu}>Testimonial</Link>
+            <Link href="/testimonial" className={pathname === "/testimonial" ? "active" : ""} aria-current={pathname === "/testimonial" ? "page" : undefined} onClick={closeMenu}>Testimonial</Link>
           </div>
         </div>
 
         {/* Services Dropdown */}
         <div className={`nav-item has-dropdown ${openDropdown === "services" ? "dropdown-open" : ""} ${suppressHover ? "no-hover" : ""}`} onMouseLeave={() => setSuppressHover(false)} >
           <div className="nav-item-heading">
-            <Link href="/services" className={`nav-link ${pathname === "/services" ? "active" : ""}`} onClick={closeMenu}>Services</Link>
+            <Link href="/services" className={`nav-link ${pathname.startsWith("/services") ? "active" : ""}`} onClick={closeMenu}>Services</Link>
 
             <button
               type="button"
@@ -136,14 +136,14 @@ function HeaderContent({ pathname }: { pathname: string }) {
           </div>
 
           <div className="dropdown-menu">
-            <Link href="/" onClick={closeMenu}>UI/UX Design</Link>
-            <Link href="/" onClick={closeMenu}>Web Development</Link>
-            <Link href="/" onClick={closeMenu}>App Development</Link>
-            <Link href="/" onClick={closeMenu}>Software Testing</Link>
-            <Link href="/" onClick={closeMenu}>Content Writing</Link>
-            <Link href="/" onClick={closeMenu}>GMB Optimization</Link>
-            <Link href="/" onClick={closeMenu}>Social Media Optimization</Link>
-            <Link href="/" onClick={closeMenu}>Search Engine Optimization</Link>
+            <Link href="/services/ui-ux-design" className={pathname === "/services/ui-ux-design" ? "active" : ""} aria-current={pathname === "/services/ui-ux-design" ? "page" : undefined} onClick={closeMenu}>UI/UX Design</Link>
+            <Link href="/services/web-development" className={pathname === "/services/web-development" ? "active" : ""} aria-current={pathname === "/services/web-development" ? "page" : undefined} onClick={closeMenu}>Web Development</Link>
+            <Link href="/services/app-development" className={pathname === "/services/app-development" ? "active" : ""} aria-current={pathname === "/services/app-development" ? "page" : undefined} onClick={closeMenu}>App Development</Link>
+            <Link href="/services/software-testing" className={pathname === "/services/software-testing" ? "active" : ""} aria-current={pathname === "/services/software-testing" ? "page" : undefined} onClick={closeMenu}>Software Testing</Link>
+            <Link href="/services/content-writing" className={pathname === "/services/content-writing" ? "active" : ""} aria-current={pathname === "/services/content-writing" ? "page" : undefined} onClick={closeMenu}>Content Writing</Link>
+            <Link href="/services/gmb-optimization" className={pathname === "/services/gmb-optimization" ? "active" : ""} aria-current={pathname === "/services/gmb-optimization" ? "page" : undefined} onClick={closeMenu}>GMB Optimization</Link>
+            <Link href="/services/social-media-optimization" className={pathname === "/services/social-media-optimization" ? "active" : ""} aria-current={pathname === "/services/social-media-optimization" ? "page" : undefined} onClick={closeMenu}>Social Media Optimization</Link>
+            <Link href="/services/search-engine-optimization" className={pathname === "/services/search-engine-optimization" ? "active" : ""} aria-current={pathname === "/services/search-engine-optimization" ? "page" : undefined} onClick={closeMenu}>Search Engine Optimization</Link>
           </div>
         </div>
 

@@ -1,10 +1,10 @@
 const brands = [
   { name: "Tahiro", wordmark: "TAHIRO", style: "font-medium tracking-[0.3em] text-[#314c77]" },
-  { name: "PhytoQuant", wordmark: "PhytoQuant", style: "font-serif italic text-[#91a900]" },
+  { name: "PhytoQuant", wordmark: "PhytoQuant", style: "font-heading italic text-[#91a900]" },
   { name: "Releaf", wordmark: "RELEAF", style: "font-semibold tracking-[0.12em] text-[#557d83]" },
   { name: "Moc", wordmark: "mōc", style: "text-5xl font-bold tracking-tight text-[#3d3d3d]" },
   { name: "DailyShake", wordmark: "DAILYSHAKE", style: "font-semibold tracking-tight text-[#273449]" },
-  { name: "Stirling Farms", wordmark: "STIRLING FARMS", style: "font-serif text-xs tracking-[0.2em] text-[#536b68]" },
+  { name: "Stirling Farms", wordmark: "STIRLING FARMS", style: "font-heading text-xs tracking-[0.2em] text-[#536b68]" },
   { name: "Yookidoo", wordmark: "Yookidoo", style: "rounded-full bg-[#9f351e] px-4 py-2 font-bold text-[#f4d24b]" },
   { name: "Louise Roe", wordmark: "LOUISE ROE", style: "font-semibold tracking-[0.16em] text-[#171717]" },
   { name: "Aussie Sleep", wordmark: "Aussie Sleep", style: "font-semibold text-[#145b9d]" },
